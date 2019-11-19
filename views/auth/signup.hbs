@@ -14,44 +14,31 @@
   <input id="email" type="email" name="email" placeholder="Your email">
   <br>
 
-
-<p>Choose your interests :</p>
-
-<div>
-  <input type="checkbox" id="science" name="science"
-         checked>
-  <label for="science">Science</label>
-</div>
-
-<div>
-  <input type="checkbox" id="outdoor" name="outdoor">
-  <label for="outdoor">Outdoor</label>
-</div>
-<div>
-  <input type="checkbox" id="indoor" name="indoor">
-  <label for="indoor">Indoor</label>
-</div>
+  <label for="picture">picture</label>
+  <input id="picture" type="text" name="picture" placeholder="picture URL">
   <br>
+
+
+  <p>Choose your interests :</p>
+    <select multiple="multiple" class="interests" id="interests" name="interests">
+    <option value="Outdoor">Outdoor</option>
+    <option value="Indoor">Indoor</option>
+    <option value="Science">Science</option>
+    </select>
+  <br>
+
 
   <p>Choose your languages :</p>
+  <select multiple="multiple" class="languages" id="languages" name="languages">
+    <option value="Action">English</option>
+    <option value="Comedies">French</option>
+    <option value="Dramas">German</option>
+  </select>
 
-<div>
-  <input type="checkbox" id="english" name="english"
-         checked>
-  <label for="english">English</label>
-</div>
-<div>
-  <input type="checkbox" id="german" name="german">
-  <label for="german">German</label>
-</div>
-<div>
-  <input type="checkbox" id="french" name="french">
-  <label for="french">French</label>
-</div>
-  <br>
+
 
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
@@ -64,3 +51,14 @@
   </p>
 </form>
 
+<script>
+{{!-- var checkboxes = document.querySelectorAll('input[type=checkbox]')
+  console.log(checkboxes)
+  var arr = Array.prototype.slice.call(checkboxes)
+  for (let item of arr) {
+    if(item.checked) {
+    console.log(item)
+    console.log(item.getAttribute("id"))
+  }
+  } --}}
+</script>
