@@ -1,0 +1,16 @@
+<h1>Look for Skills in your Area</h1>
+
+<h2>All skills from our members:</h2>
+{{#each skills }}
+<ul>
+  <li>{{ skillName }}
+    <br>{{ description }}
+    <a href="/details{{id}}">More Info</a>
+  </li>
+</ul>
+{{/each}}
+
+<form action="/search" method="GET">
+  <input type="text" placeholder="Piano lesson..." id="search-bar" name="q">
+  <button type="submit">FIND</button>
+</form>

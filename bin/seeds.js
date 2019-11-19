@@ -22,7 +22,7 @@ mongoose
 
 let users = [{
     username: "Floriano",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    password: bcrypt.hashSync("floriano", bcrypt.genSaltSync(bcryptSalt)),
     email: "testmailOne",
     interests: ["Skateboarding", "Baking Banana Bread"],
     languages: ["French", "German"],
@@ -32,7 +32,7 @@ let users = [{
   },
   {
     username: "Laura",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    password: bcrypt.hashSync("laura", bcrypt.genSaltSync(bcryptSalt)),
     email: "testmailTwo",
     interests: ["Mushroom Search", "Guitar Playing"],
     languages: ["German", "English"],
@@ -43,11 +43,29 @@ let users = [{
 ]
 
 const skills = [{
-  skillName: "Skateboarding Beginners Class",
-  description: "I offer a 3 hours intro to skateboarding at Tempelhofer Feld on Sundays. I will provide a skateboard for you as well as a helmet and protective gear.",
-  ScheduleSpecs: "Flexible on Sundays",
-  picture: "test"
-}]
+    skillName: "Fancy 3-course menu",
+    description: "Still no idea what to cook for christmas? I can teach you how to cook a fancy dinner with 3 to 4 courses",
+    ScheduleSpecs: "Flexible on Sundays",
+    picture: "https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-57-5a3bb7ba3c266__700.jpg"
+  }, {
+    skillName: "Mountain Bike Intro",
+    description: "Let's practice biking on Tempelhofer Feld!",
+    ScheduleSpecs: "Weekends only, preferably starting around 10",
+    picture: "https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-403-5a3bd36c44d28__700.jpg"
+  }, {
+    skillName: "Sewing Course",
+    description: "I am studying fashion design at UDK and can teach you how to sew! Ideally you contact me with a project idea and your level of expertise so we can take it from there and work out how much time is needed",
+    ScheduleSpecs: "Weekends only",
+    picture: "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/terminal01/2011/3/29/17/enhanced-buzz-14888-1301434118-8.jpg"
+  },
+  {
+    skillName: "Teaching Kids how to read",
+    description: "...",
+    ScheduleSpecs: "Thursday, Friday or Sunday night",
+    picture: "https://static.boredpanda.com/blog/wp-content/uploads/2017/12/5a3a10bd3f6c6_z3kfn4ivorfz__700.jpg"
+  }
+
+]
 
 const comments = [{
   // commentId ???
