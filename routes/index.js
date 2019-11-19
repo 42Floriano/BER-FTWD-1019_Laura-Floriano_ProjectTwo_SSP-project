@@ -21,12 +21,11 @@ router.get("/skills", (req, res, next) => {
     })
 })
 
-// router.get("/search", (req, res, next) => {
-//   const searchStr = req.query.q;
+router.get("/search", (req, res, next) => {
+  const searchStr = req.query.q;
+  const filtered = 
 
-//   Skill.find({})
-//     .then
-// });
+})
 
 
 // const filtered = players.filter(player => {
