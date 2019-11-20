@@ -29,7 +29,6 @@ router.post("/skill", (req, res, next) => {
     });
 });
 
-
 /* SKILLS OVERVIEW PAGE */
 
 router.get("/skills", (req, res, next) => {
@@ -43,8 +42,6 @@ router.get("/skills", (req, res, next) => {
       console.log(err);
     })
 })
-
-
 
 /* SEARCH */
 
