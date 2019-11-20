@@ -1,0 +1,17 @@
+<h1>Search</h1>
+
+<h2>All skills that match your search:</h2>
+{{#each skills }}
+<ul>
+  <li>{{ skillName }}
+    <br>{{ description }}
+    <a href="/details{{id}}">More Info</a>
+  </li>
+</ul>
+{{/each}}
+
+{{#if message}}
+<span>{{message}}</span>
+{{/if}}
+
+<a href="/skills">Return to overview</a>
