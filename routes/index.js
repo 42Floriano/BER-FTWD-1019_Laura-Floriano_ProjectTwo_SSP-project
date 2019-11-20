@@ -23,7 +23,7 @@ router.get("/skills", (req, res, next) => {
 
 router.get("/search", (req, res, next) => {
   const searchStr = req.query.q;
-  const filtered = 
+  //const filtered = 
 
 })
 
