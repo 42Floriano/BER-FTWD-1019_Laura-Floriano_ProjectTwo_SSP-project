@@ -11,7 +11,11 @@ const skillSchema = new Schema({
     required: true,
   },
   scheduleSpecs: String,
-  picture: String
+  picture: String,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 const Skill = mongoose.model("Skill", skillSchema);

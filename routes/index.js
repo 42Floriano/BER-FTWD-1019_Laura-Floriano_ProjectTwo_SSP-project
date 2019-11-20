@@ -9,6 +9,27 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+router.get('/skills/addSkill', (req, res, next) => {
+  res.render('skills/addSkill');
+});
+
+// loginCheck will prevent non logged in users from creating a room
+router.post("/skill", (req, res, next) => {
+  Skill.create({
+      skillName: req.body.name,
+      description: req.body.description,
+      scheduleSpecs: req.body.schedule,
+      owner: req.user._id
+    })
+    .then(skill => {
+      res.redirect(`/skills/skills`);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+
 /* SKILLS OVERVIEW PAGE */
 
 router.get("/skills", (req, res, next) => {
@@ -22,6 +43,8 @@ router.get("/skills", (req, res, next) => {
       console.log(err);
     })
 })
+
+
 
 /* SEARCH */
 
