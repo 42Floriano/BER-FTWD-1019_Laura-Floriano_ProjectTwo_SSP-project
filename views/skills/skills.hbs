@@ -5,12 +5,12 @@
 <ul>
   <li>{{ skillName }}
     <br>{{ description }}
-    <a href="/details{{id}}">More Info</a>
+    <a href="/details/{{id}}">More Info</a>
   </li>
 </ul>
 {{/each}}
 
- <a href="/skills/addSkill">Add Skill</a>
+<a href="/skills/addSkill">Add Skill</a>
 
 <form action="/search" method="POST">
   <input type="text" placeholder="Piano lesson..." id="search-bar" name="skillSearch">

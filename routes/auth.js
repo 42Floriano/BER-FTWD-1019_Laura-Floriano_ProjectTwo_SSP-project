@@ -10,7 +10,9 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", {
+    "message": req.flash("error")
+  });
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -22,7 +24,9 @@ router.post("/login", passport.authenticate("local", {
 
 router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
   console.log("test")
-  res.render("auth/private-page", { user: req.user });
+  res.render("auth/private-page", {
+    user: req.user
+  });
 });
 
 
@@ -30,7 +34,7 @@ router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
 // router.post("/login", (req, res, next) => {
 //   const theUsername = req.body.username;
 //   const thePassword = req.body.password;
-  
+
 
 //   if (theUsername === "" || thePassword === "") {
 //     res.render("auth/login", {
@@ -44,9 +48,9 @@ router.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
 //       if (!user) {
 //         res.render("auth/login", {
 //           errorMessage: "The username doesn't exist."
-          
+
 //         });
-        
+
 //         return;
 //       }
 //       if (bcrypt.compareSync(thePassword, user.password)) {
@@ -82,34 +86,44 @@ router.post("/signup", (req, res, next) => {
 
 
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/signup", {
+      message: "Indicate username and password"
+    });
     return;
   }
 
-  const checkEmail = User.findOne({email: email})
+  const checkEmail = User.findOne({
+      email: email
+    })
     .then(user => {
       console.log("checkEmail, userObject", user)
-      if(user !== null) {
-        res.render("auth/signup", { message: "The email already exists" });
+      if (user !== null) {
+        res.render("auth/signup", {
+          message: "The email already exists"
+        });
         return false;
       }
     })
 
-  const checkUsername = User.findOne({username: username})
-  .then(user => {
-    console.log("checkUsername, userObject", user)
-    if(user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
-      return false;
-    }
-  })
+  const checkUsername = User.findOne({
+      username: username
+    })
+    .then(user => {
+      console.log("checkUsername, userObject", user)
+      if (user !== null) {
+        res.render("auth/signup", {
+          message: "The username already exists"
+        });
+        return false;
+      }
+    })
 
   Promise.all([checkEmail, checkUsername])
     .then(response => {
       if (response[0] !== false && response[1] !== false) {
         const salt = bcrypt.genSaltSync(bcryptSalt);
         const hashPass = bcrypt.hashSync(password, salt);
-  
+
         const newUser = new User({
           username,
           password: hashPass,
@@ -117,21 +131,23 @@ router.post("/signup", (req, res, next) => {
           interests,
           languages,
           picture,
-  
+
         });
         console.log("PromiseAll newUser", newUser);
         newUser.save()
-        .then(() => {
-          res.redirect("/");
-        })
-        .catch(err => {
-          res.render("auth/signup", { message: "Something went wrong" });
-        })
+          .then(() => {
+            res.redirect("/");
+          })
+          .catch(err => {
+            res.render("auth/signup", {
+              message: "Something went wrong"
+            });
+          })
       }
-      })
+    })
     .catch(error => {
       console.log(error);
-  })
+    })
 });
 
 
