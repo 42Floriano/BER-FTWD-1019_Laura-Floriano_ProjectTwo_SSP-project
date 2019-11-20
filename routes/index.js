@@ -9,6 +9,8 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+/* SKILLS OVERVIEW PAGE */
+
 router.get("/skills", (req, res, next) => {
   Skill.find({})
     .then(documents => {
@@ -21,23 +23,33 @@ router.get("/skills", (req, res, next) => {
     })
 })
 
-router.get("/search", (req, res, next) => {
-  const searchStr = req.query.q;
-  //const filtered = 
+/* SEARCH */
 
+router.post("/search", (req, res, next) => {
+  const searchStr = req.body.skillSearch;
+  console.log("SearchStr");
+
+  Skill.find({
+      skillName: new RegExp(searchStr, "i")
+    })
+    .then(documents => {
+      console.log("filtered docs", documents)
+      if (documents.length) {
+        res.render("skills/search", {
+          skills: documents
+        })
+      } else {
+        res.render("skills/search", {
+          message: "Unfortunately, the skill you are looking for is not available yet!"
+        })
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 
-
-// const filtered = players.filter(player => {
-//   if (player.name.toLowerCase().includes(searchString.toLowerCase())) {
-//       return true;
-//   }
-// });
-
-// res.render("players.hbs", {
-//   playersList: filtered
-// });
-
+/* SKILL DETAILS PAGE */
 
 router.get("/details:id", (req, res, next) => {
   Skill.findById(req.params.id)

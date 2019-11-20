@@ -24,8 +24,8 @@ let users = [{
     username: "Floriano",
     password: bcrypt.hashSync("floriano", bcrypt.genSaltSync(bcryptSalt)),
     email: "testmailOne",
-    interests: ["Skateboarding", "Baking Banana Bread"],
-    languages: ["French", "German"],
+    interests: ["Outdoor", "Cooking"],
+    languages: ["French", "English"],
     picture: "test",
     id: "1234",
     // skills_Ids: Array
@@ -34,7 +34,7 @@ let users = [{
     username: "Laura",
     password: bcrypt.hashSync("laura", bcrypt.genSaltSync(bcryptSalt)),
     email: "testmailTwo",
-    interests: ["Mushroom Search", "Guitar Playing"],
+    interests: ["Sports", "Music"],
     languages: ["German", "English"],
     picture: "test",
     id: "5678",
@@ -43,8 +43,8 @@ let users = [{
 ]
 
 const skills = [{
-    skillName: "Fancy 3-course menu",
-    description: "Still no idea what to cook for christmas? I can teach you how to cook a fancy dinner with 3 to 4 courses",
+    skillName: "Personal Chef - Fancy 3-course menu",
+    description: "No idea what to cook for Christmas? I can teach you how to create a spectacular dinner (3 courses) (...)",
     ScheduleSpecs: "Flexible on Sundays",
     picture: "https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-57-5a3bb7ba3c266__700.jpg"
   }, {
@@ -61,7 +61,7 @@ const skills = [{
   {
     skillName: "Teaching Kids how to read",
     description: "...",
-    ScheduleSpecs: "Thursday, Friday or Sunday night",
+    ScheduleSpecs: "Thursday, Friday or Sunday Afternoon",
     picture: "https://static.boredpanda.com/blog/wp-content/uploads/2017/12/5a3a10bd3f6c6_z3kfn4ivorfz__700.jpg"
   }
 
