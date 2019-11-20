@@ -2,4 +2,8 @@
 
 <img src="{{skill.picture}}" alt="">
 <span>{{ skill.description }}</span>
+
+{{#if showDelete}}
+<a href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
+{{/if}}
 <a href="/skills">Return to overview</a>

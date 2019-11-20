@@ -1,0 +1,27 @@
+<h1>Profile page</h1>
+
+<h1>{{user.username}}</h1>
+
+{{!-- <h1>{{user.email}}</h1> --}}
+
+
+<img src="{{user.picture}}" alt="">
+
+<form action="/changeProfile" method="post">
+  <label for="username">Name: </label>
+  <input type="text" name="username" id="username" placeholder="{{user.username}}" required>
+
+  <label for="password">Password: </label>
+  <input type="string" name="password" id="password" required>
+
+  <label for="email">Email: </label>
+  <input type="email" name="email" id="email" placeholder="{{user.email}}" required>
+
+  <label for="picture">URL to picture: </label>
+  <input type="text" name="picture" id="picture" placeholder="{{user.picture}}" required>
+
+  <button type="submit">Save changes</button>
+</form>
+<a href="/profile/delete">Delete Profile</a>
+
+<a href="/">Return to main page</a>

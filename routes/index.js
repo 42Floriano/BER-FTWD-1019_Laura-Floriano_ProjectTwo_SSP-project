@@ -3,26 +3,51 @@ const router = express.Router();
 const User = require("../models/User");
 const Skill = require("../models/Skill");
 const Comment = require("../models/Skill");
+const ensureLogin = require("connect-ensure-login");
+
 
 /* GET home page */
+
 router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.get('/skills/addSkill', (req, res, next) => {
+
+/* PROFILE */
+
+router.get("/profile", (req, res, next) => {
+  console.log(req.user._id);
+  User.find({
+      _id: req.user._id
+    })
+    .then(documents => {
+      console.log(documents[0])
+      res.render("profile/profile", {
+        user: documents[0]
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
+})
+
+/* Route to ADD SKILLS page */
+
+router.get('/skills/addSkill', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   res.render('skills/addSkill');
 });
 
-// loginCheck will prevent non logged in users from creating a room
-router.post("/skill", (req, res, next) => {
+router.post("/add", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  console.log("req.user", req.user);
   Skill.create({
-      skillName: req.body.name,
+      skillName: req.body.skillName,
       description: req.body.description,
-      scheduleSpecs: req.body.schedule,
+      scheduleSpecs: req.body.scheduleSpecs,
+      picture: req.body.picture,
       owner: req.user._id
     })
     .then(skill => {
-      res.redirect(`/skills/skills`);
+      res.redirect("/skills");
     })
     .catch(err => {
       next(err);
@@ -34,6 +59,7 @@ router.post("/skill", (req, res, next) => {
 router.get("/skills", (req, res, next) => {
   Skill.find({})
     .then(documents => {
+      console.log(documents)
       res.render("skills/skills", {
         skills: documents
       })
@@ -69,19 +95,42 @@ router.post("/search", (req, res, next) => {
     })
 })
 
+router.get("/skills/:skillId/delete", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const query = {
+    _id: req.params.skillId
+  };
+
+
+  // if the user that made the request is the one that created the room:
+  // delete the room where the `_id` of the room is the one from the params and the `owner` of the room is the user who made the request
+
+  Skill.deleteOne(query)
+    .then(() => {
+      res.redirect("/skills");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+
 /* SKILL DETAILS PAGE */
 
-router.get("/details:id", (req, res, next) => {
+router.get("/details/:id", (req, res, next) => {
   Skill.findById(req.params.id)
     .then(theSkill => {
       res.render("skills/details", {
-        skill: theSkill
+        skill: theSkill,
+        showDelete: theSkill.owner._id.toString() === req.user._id.toString()
       })
     })
     .catch(err => {
       console.log(err)
     });
 })
+
+
+
 
 
 module.exports = router;

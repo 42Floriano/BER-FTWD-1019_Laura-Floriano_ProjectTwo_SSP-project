@@ -25,7 +25,8 @@ const userSchema = new Schema({
   interests: Array,
   languages: Array,
   picture: String,
-  skills_Ids: Array
+  skills_Ids: Array,
+
 });
 
 const User = mongoose.model('User', userSchema);
