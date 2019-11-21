@@ -4,7 +4,7 @@
 html {
   padding: 50px;
   font-family: 14px Helvetica, Arial, sans-serif;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 }
 
 a {
@@ -31,7 +31,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
   }
 
   /* INDEX */
@@ -48,7 +48,7 @@ a {
 
     height: 200px;
     width: 80%;
-    
+
   }
 
   .mySlides {
@@ -63,7 +63,8 @@ a {
     justify-content: space-around;
     width: 250px;
     border-radius: 20px;
-   padding: 0px 4px 0px;;
+    padding: 0px 4px 0px;
+
   }
 
   .fas {
@@ -163,43 +164,67 @@ a {
     list-style: none;
     margin-bottom: -5px;
   }
-/* ---------------- Profile HBS ------------------*/
 
-.userContainer {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  
-  
+  /* ---------------- Profile HBS ------------------*/
 
-}
-.userForm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  
-}
+  .userContainer {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
-.userImg img {
-  width: 100px;
-  margin-bottom: 2vh;
 
-}
-.userForm {
-  border-radius: 5px;
-  background-color: grey;
-  padding: 20px;
-}
-.userH1name {
-  text-align: center;
-}
 
-.profileB {
-  align-self: center;
-margin: 3vh;
-}
+  }
+
+  .userForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+  }
+
+  .userImg img {
+    width: 100px;
+    margin-bottom: 2vh;
+
+  }
+
+  .userForm {
+    border-radius: 5px;
+    background-color: grey;
+    padding: 20px;
+  }
+
+  .userH1name {
+    text-align: center;
+  }
+
+  .profileB {
+    align-self: center;
+    margin: 3vh;
+  }
+
+  /* ---------------- Skill DETAILS ------------------*/
+
+
+  .skill-img {
+    width: 200px;
+  }
+
+  .comments {
+    margin-top: 20px;
+  }
+
+  .skill-form {
+    margin-top: 20px;
+  }
+
+  .delete {
+    margin-top: 20px;
+  }
+
 }
