@@ -19,11 +19,16 @@
       <a href="/" class="active">Home</a>
 
       <div id="myLinks">
-        <a href="/auth/login">Login</a>
-        <a href="/auth/signup">Signup</a>
+     {{#if loggedInUser}}  
         <a href="/profile">Profile</a>
         <a href="/skills">Skills</a>
         <a href="/auth/logout">Logout</a>
+
+        {{else}}
+        <a href="/auth/login">Login</a>
+        <a href="/auth/signup">Signup</a>
+
+        {{/if}}
       </div>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -35,6 +40,7 @@
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
+
 
 </body>
 

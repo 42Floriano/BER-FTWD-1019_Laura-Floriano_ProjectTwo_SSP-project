@@ -10,9 +10,18 @@ const url = require('url');
 /* GET home page */
 
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index' , {loggedInUser:req.user});
 });
 
+router.get('/getUser', (req, res, next) => {
+  if(req.user){
+  User.findById(req.user._id).then(user =>{
+    res.send(user)
+    return;
+  })
+}
+return;
+})
 /* SKILL DETAILS PAGE */
 
 router.get("/details/:id", (req, res, next) => {
@@ -23,7 +32,8 @@ router.get("/details/:id", (req, res, next) => {
       console.log(theSkill)
       res.render("skills/details", {
         skill: theSkill,
-        showDelete: theSkill.owner._id.toString() === req.user._id.toString()
+        showDelete: theSkill.owner._id.toString() === req.user._id.toString(),
+        loggedInUser:req.user
       })
     })
   
@@ -46,7 +56,8 @@ router.get("/profile", (req, res, next) => {
     .then(documents => {
       console.log(documents[0])
       res.render("profile/profile", {
-        user: documents[0]
+        user: documents[0],
+        loggedInUser:req.user
       })
     })
     .catch(err => {
@@ -137,7 +148,8 @@ router.get("/skills", (req, res, next) => {
     .then(documents => {
       console.log(documents)
       res.render("skills/skills", {
-        skills: documents
+        skills: documents,
+        loggedInUser:req.user
       })
     })
     .catch(err => {
@@ -158,11 +170,15 @@ router.post("/search", (req, res, next) => {
       console.log("filtered docs", documents)
       if (documents.length) {
         res.render("skills/search", {
-          skills: documents
+          skills: documents,
+          loggedInUser:req.user
+
         })
       } else {
         res.render("skills/search", {
-          message: "Unfortunately not, the skill you are looking for is not available yet!"
+          message: "Unfortunately not, the skill you are looking for is not available yet!",
+          loggedInUser:req.user
+
         })
       }
     })
