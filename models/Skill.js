@@ -9,7 +9,12 @@ const skillSchema = new Schema({
   owner: {
     type: Schema.Types.ObjectId,
     ref: "User"
-  }
+  },
+  
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: "Comment"
+  }]
 })
 
 const Skill = mongoose.model("Skill", skillSchema);
