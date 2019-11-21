@@ -1,9 +1,27 @@
-<h1>Details...</h1>
+
+<h1>{{skill.skillName}}</h1>
 
 <img src="{{skill.picture}}" alt="">
 <span>{{ skill.description }}</span>
 
 {{#if showDelete}}
+<form action="/skills/{{skill._id}}/update" method="post">
+
+  <label for="skillName">Name: </label>
+  <input type="text" name="skillName" id="skillName" value="{{skill.skillName}}">
+  <br>
+  <label for="description">Description: </label>
+  <input type="text" name="description" id="description" value="{{skill.description}}">
+  <br>
+  <label for="scheduleSpecs">Schedule: </label>
+  <input type="text" name="scheduleSpecs" id="scheduleSpecs" value="{{skill.scheduleSpecs}}">
+  <br>
+  <label for="picture">URL picture: </label>
+  <input type="text" name="picture" id="picture" value="{{skill.picture}}">
+  <br>
+  <button type="submit">Modify</button>
+</form>
 <a href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
+
 {{/if}}
 <a href="/skills">Return to overview</a>

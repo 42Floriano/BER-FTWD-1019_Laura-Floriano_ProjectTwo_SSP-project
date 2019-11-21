@@ -7,21 +7,68 @@
 
 <img src="{{user.picture}}" alt="">
 
-<form action="/changeProfile" method="post">
+<form action="/profile/update" method="post">
   <label for="username">Name: </label>
-  <input type="text" name="username" id="username" placeholder="{{user.username}}" required>
-
+  <input type="text" name="username" id="username" value="{{user.username}}" >
+<br>
   <label for="password">Password: </label>
-  <input type="string" name="password" id="password" required>
-
+  <input type="string" name="password" id="password" value="{{user.password}}" >
+<br>
   <label for="email">Email: </label>
-  <input type="email" name="email" id="email" placeholder="{{user.email}}" required>
-
+  <input type="email" name="email" id="email" value="{{user.email}}" required>
+<br>
   <label for="picture">URL to picture: </label>
-  <input type="text" name="picture" id="picture" placeholder="{{user.picture}}" required>
+  <input type="text" name="picture" id="picture" value="{{user.picture}}" required>
+<br>
+
+<p>Choose your interests :</p>
+    <select multiple="multiple" class="interests" id="interests" name="interests">
+    <option value="Outdoor">Outdoor</option>
+    <option value="Indoor">Indoor</option>
+    <option value="Science">Science</option>
+    </select>
+  <br>
+
+
+  <p>Choose your languages :</p>
+  <select multiple="multiple" class="languages" id="languages" name="languages">
+    <option value="Action">English</option>
+    <option value="Comedies">French</option>
+    <option value="Dramas">German</option>
+  </select>
+
+
+
+  
+{{!-- <p>Choose your interests :</p>
+    <select multiple="multiple" class="interests" id="interests" name="interests">
+ {{#each user.interests}}
+      <option selected = "selected">{{this}}</option>
+  {{/each}}
+
+  <option value="Outdoor">Outdoor</option>
+    <option value="Indoor">Indoor</option>
+    <option value="Science">Science</option> 
+ 
+    </select>
+
+      
+  <br>
+
+
+  <p>Choose your languages :</p>
+  <select multiple="multiple" class="languages" id="languages" name="languages">
+    <option value="Action">English</option>
+    <option value="Comedies">French</option>
+    <option value="Dramas">German</option>
+  </select> --}}
 
   <button type="submit">Save changes</button>
 </form>
 <a href="/profile/delete">Delete Profile</a>
 
 <a href="/">Return to main page</a>
+
+{{#if message }}
+  <div class="error-message">{{ message }}</div>
+  {{/if}}
