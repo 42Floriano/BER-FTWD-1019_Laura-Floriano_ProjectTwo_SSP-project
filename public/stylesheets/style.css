@@ -104,18 +104,25 @@ a {
     margin-top: 20px;
     text-decoration: none;
     color: black; }
+  .big-btn:active {
+    background-color: darkgray;
+    transform: translateY(2px); }
   .find-btn {
     background-color: lightgray;
     border-radius: 25px;
     padding: 7px 10px;
     text-decoration: none;
     color: black; }
+  .find-btn:active {
+    background-color: darkgray;
+    transform: translateY(2px); }
   .skill-list {
     list-style: none;
     margin-bottom: -5px; }
   /* ---------------- Profile HBS ------------------*/
   .userH1name {
-    margin: 4vh; }
+    margin: 4vh;
+    text-justify: initial; }
   .userContainer {
     display: flex;
     text-align: center;
@@ -127,18 +134,21 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: flex-start; }
-  .userImg img {
-    width: 100px;
-    margin-bottom: 2vh; }
-  .userForm {
+    align-items: flex-start;
     border-radius: 5px;
     background-color: grey;
-    padding: 20px; }
+    padding: 20px;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 20px 20px 20px 20px; }
+  .userImg img {
+    width: 100px;
+    margin-bottom: 4vh;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 20px 20px 20px 20px; }
   .userH1name {
     text-align: center; }
   .profileB {
-    align-self: center;
-    margin: 3vh; } }
+    display: flex;
+    align-self: center; } }
 
 /*# sourceMappingURL=style.css.map */

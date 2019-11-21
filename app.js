@@ -21,7 +21,7 @@ const LocalStrategy = require("passport-local").Strategy;
 
 
 mongoose
-  .connect('mongodb://localhost/ssp-project', {
+  .connect('mongodb://localhost/ssp-project' || `mongodb://heroku_qvgtk01n:5e1nen2f2hvaufsfsqnm2248go@ds037601.mlab.com:37601/heroku_qvgtk01n`, {
     useNewUrlParser: true
   })
   .then(x => {
