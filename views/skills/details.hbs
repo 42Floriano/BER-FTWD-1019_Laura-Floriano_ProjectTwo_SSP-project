@@ -19,9 +19,9 @@
   <label for="picture">URL picture: </label>
   <input type="text" name="picture" id="picture" value="{{skill.picture}}">
   <br>
-  <button type="submit">Modify</button>
+  <button class="big-btn" type="submit">Modify</button>
 </form>
-<a href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
+<a class="big-btn" href="/skills/{{skill._id}}/delete">Delete ❌</a>
 
 {{/if}}
-<a href="/skills">Return to overview</a>
+<a class="big-btn" href="/skills">Return</a>

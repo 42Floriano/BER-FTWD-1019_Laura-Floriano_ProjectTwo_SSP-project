@@ -1,10 +1,13 @@
-<h1>Profile page</h1>
+<h1 class="userH1">profile page of:</h1>
 
-<h1>{{user.username}}</h1>
+<h1 class="userH1name">{{user.username}}</h1>
+<div class="userContainer">
 
+<div class="userImg">
 <img src="{{user.picture}}" alt="">
+</div>
 
-<form action="/profile/update" method="post">
+<form class="userForm" action="/profile/update" method="post">
   <label for="username">Name: </label>
   <input type="text" name="username" id="username" value="{{user.username}}" >
 <br>
@@ -19,7 +22,7 @@
 <br>
 
 <p>Choose your interests :</p>
-    <select multiple="multiple" class="interests" id="interests" name="interests">
+    <select class="selectInterests" multiple="multiple" class="interests" id="interests" name="interests">
     <option value="Outdoor">Outdoor</option>
     <option value="Indoor">Indoor</option>
     <option value="Science">Science</option>
@@ -28,44 +31,21 @@
 
 
   <p>Choose your languages :</p>
-  <select multiple="multiple" class="languages" id="languages" name="languages">
+  <select class="selectInterests" multiple="multiple" class="languages" id="languages" name="languages">
     <option value="Action">English</option>
     <option value="Comedies">French</option>
     <option value="Dramas">German</option>
   </select>
 
-
-
-  
-{{!-- <p>Choose your interests :</p>
-    <select multiple="multiple" class="interests" id="interests" name="interests">
- {{#each user.interests}}
-      <option selected = "selected">{{this}}</option>
-  {{/each}}
-
-  <option value="Outdoor">Outdoor</option>
-    <option value="Indoor">Indoor</option>
-    <option value="Science">Science</option> 
- 
-    </select>
-
-      
-  <br>
-
-
-  <p>Choose your languages :</p>
-  <select multiple="multiple" class="languages" id="languages" name="languages">
-    <option value="Action">English</option>
-    <option value="Comedies">French</option>
-    <option value="Dramas">German</option>
-  </select> --}}
-
-  <button type="submit">Save changes</button>
+  <div>
+  <button class="big-btn profileB" type="submit">Save changes</button>
+  </div>
+  <div>
+  <a class="big-btn profileB"href="/profile/delete">Delete Profile</a>
+  </div>
 </form>
-<a href="/profile/delete">Delete Profile</a>
 
-<a href="/">Return to main page</a>
-
+</div>
 {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}

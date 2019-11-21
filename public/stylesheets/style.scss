@@ -1,18 +1,29 @@
-body {
+// body {
+// }
+
+html {
   padding: 50px;
   font-family: 14px Helvetica, Arial, sans-serif;
+  background-color:whitesmoke;
 }
 
 a {
   color: #00B7FF;
 }
 
+
+/* ----------------- MOBILE CSS --------------------- */
 @media (max-width: 480px) {
 
-  html {
-    font-size: 14px;
-    font-family: Helvetica
+  h2 {
+    font-size: 3.5em !important;
+    text-align: center;
   }
+
+  h4 {
+    font-size: 1em;
+  }
+
 
   .container {
     text-align: center;
@@ -20,6 +31,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
   }
 
   /* INDEX */
@@ -33,13 +45,25 @@ a {
   }
 
   .index-img {
-    width: 300px;
+
+    height: 200px;
+    width: 80%;
+    
+  }
+
+  .mySlides {
+
+    max-width: 100%;
+    max-height: 100%;
+
   }
 
   .container-row {
     display: flex;
     justify-content: space-around;
     width: 250px;
+    border-radius: 20px;
+   padding: 0px 4px 0px;;
   }
 
   .fas {
@@ -118,7 +142,7 @@ a {
 
   /* SKILL OVERVIEW */
 
-  .skill-btn {
+  .big-btn {
     background-color: lightgray;
     border-radius: 50px;
     padding: 14px 20px;
@@ -127,10 +151,55 @@ a {
     color: black;
   }
 
+  .find-btn {
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 7px 10px;
+    text-decoration: none;
+    color: black;
+  }
+
   .skill-list {
     list-style: none;
     margin-bottom: -5px;
   }
+/* ---------------- Profile HBS ------------------*/
 
+.userContainer {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  
 
+}
+.userForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  
+}
+
+.userImg img {
+  width: 100px;
+  margin-bottom: 2vh;
+
+}
+.userForm {
+  border-radius: 5px;
+  background-color: grey;
+  padding: 20px;
+}
+.userH1name {
+  text-align: center;
+}
+
+.profileB {
+  align-self: center;
+margin: 3vh;
+}
 }
