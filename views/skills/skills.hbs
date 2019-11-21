@@ -1,21 +1,20 @@
 <div class="container">
-  <h1>Skills in your Area</h1>
+  <h2>Skill Overview</h2>
 
-  <h2>All skills from our members:</h2>
+  <form action="/search" method="POST">
+    <input class="input" type="text" placeholder="Piano lesson..." id="search-bar" name="skillSearch">
+    <button type="submit">Find</button>
+  </form>
 </div>
 
 {{#each skills }}
-<ul>
-  <li>{{ skillName }}
-    <br>{{ description }}<br>
-    <h1><a href="/details/{{_id}}">More Info</a></h1>
+<ul class="container-row">
+  <li class="skill-list"><b>{{ skillName }}
+      <a href="/details/{{_id}}">More Info</a>
   </li>
 </ul>
 {{/each}}
 
-<a href="/skills/addSkill">Add Skill</a>
-
-<form action="/search" method="POST">
-  <input type="text" placeholder="Piano lesson..." id="search-bar" name="skillSearch">
-  <button type="submit">FIND</button>
-</form>
+<div class="container">
+  <a class="skill-btn" href="/skills/addSkill">Add your own</a>
+</div>
