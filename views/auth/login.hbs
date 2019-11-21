@@ -1,24 +1,27 @@
+<div class="container">
+  <h2>Login</h2>
+  <img class="profile-pic" src="/images/profile.jpg" alt="">
 
-<h2>Login</h2>
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <form action="/auth/login" method="POST" id="form-container">
 
-  <br><br>
+    <div class="container">
+      <input class="input" id="username" type="text" name="username" placeholder="Username">
+      <br><br>
+      <input class="input" id="password" type="password" name="password" placeholder="Password">
+    </div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
- {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+    <br>
+    {{#if message }}
+    <div class="error-message"><i>{{ message }}</i></div>
+    {{/if}}
 
-  <br><br>
+    <br><br>
 
-  <button>Login</button>
+    <button class="login-btn">Login</button>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+    <p class="account-message">
+      Don't have an account yet?
+      <a href="/auth/signup">Signup</a>
+    </p>
+  </form>
+</div>

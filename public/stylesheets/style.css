@@ -1,50 +1,84 @@
 body {
-  padding: 0;
-  margin:0;
-  background-color: whitesmoke;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  padding: 50px;
+  font-family: 14px Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
 
-  .navBar {
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+    font-family: Helvetica; }
+  .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  /* INDEX */
+  .logo {
+    position: absolute;
+    left: 4%;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 25%; }
+  .index-img {
+    width: 300px; }
+  .container-row {
+    display: flex;
+    justify-content: space-around;
+    width: 250px; }
+  .fas {
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50% 50% 50% 50%;
+    padding: 10px;
+    margin-bottom: -20px; }
+  /* NAVIGATION */
+  .topnav {
+    background-color: pink;
+    width: 300px;
     overflow: hidden;
-    background-color: grey;
-    position: relative;
-    /* padding: 2vh 0.5vh 2vh; */
-  }
-
-  #buttonMenu {
-    display: none;
-  } 
-
-  .navBar a {
+    position: relative; }
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none; }
+  /* Style navigation menu links */
+  .topnav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    display: block; }
+  /* Style the hamburger menu */
+  .topnav a.icon {
     display: block;
-  }
-  .navBar a.icon {
-    background: gray;
-    /* display: block; */
     position: absolute;
     right: 0;
-    top: 0;
-
-  }
-  .navBar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
+    top: 0; }
+  /* Change text color to black on mouse-over */
+  .topnav a:hover {
+    color: black; }
+  /* Style the home */
   .active {
-    background-color: darkgray;
-    color: white;
-  }
-
-  .indexH1 {
-    
-  }
+    color: white; }
+  /* LOGIN */
+  .profile-pic {
+    width: 40%;
+    border-radius: 50%;
+    margin-bottom: 20px; }
+  .input {
+    width: 200px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: pink;
+    margin-top: 10px; }
+  .login-btn {
+    font-size: 14px;
+    background-color: light-grey;
+    width: 200px;
+    border-radius: 50px;
+    padding: 14px 20px;
+    margin-bottom: 20px; } }
 
 /*# sourceMappingURL=style.css.map */
