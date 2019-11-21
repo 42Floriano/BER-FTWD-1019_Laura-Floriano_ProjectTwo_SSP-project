@@ -1,14 +1,15 @@
 <div class="container">
 
-  <h3>{{skill.skillName}}</h3>
+  <h3 class="h3SkillDetails">{{skill.skillName}}</h3>
 
-  <img class="skill-img" src="{{skill.picture}}" alt="">
+  <div class="userImg profileh2"> 
+  <img src="{{skill.picture}}" alt="">
+  </div>
   <br>
-  <span>{{ skill.description }}</span>
 
   {{#if showDelete}}
   <div class="skill-form">
-    <form action="/skills/{{skill._id}}/update" method="post">
+    <form class="userForm" action="/skills/{{skill._id}}/update" method="post">
 
       <div>
         <label for="skillName">Name: </label>
@@ -30,11 +31,14 @@
         <input type="text" name="picture" id="picture" value="{{skill.picture}}">
       </div>
       <br>
+      <div class="profileB">
       <button class="big-btn" type="submit">Modify</button>
-    </form>
-    <div class="delete">
-      <a class="big-btn" href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
+      </div >
+      <div class="delete ">
+      <a class="big-btn" href="/skills/{{skill._id}}/delete">Delete ❌</a>
     </div>
+    </form>
+    
   </div>
   {{/if}}
 
@@ -48,8 +52,9 @@
     {{/if}}
   </div>
 
-  <a class="big-btn" href="/skills">Return to overview</a>
-
+<div class="returnDetails">
+  <a class="big-btn" href="/skills">Return</a>
+</div>
 
   {{!-- <form action="/rooms/{{room._id}}/comment" method="post"> --}}
   <form id="comment-form">

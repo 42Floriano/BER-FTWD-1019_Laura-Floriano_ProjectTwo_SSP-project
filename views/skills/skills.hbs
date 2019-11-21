@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Skill Overview</h2>
+  <h2 class="h2Skills">Skills Overview</h2>
 
   <form action="/search" method="POST">
     <input class="input" type="text" placeholder="Piano lesson..." id="search-bar" name="skillSearch">
@@ -7,14 +7,32 @@
   </form>
 </div>
 
-{{#each skills }}
-<ul class="container-row">
-  <li class="skill-list"><b>{{ skillName }}
+<table class="list-skills">
+<tbody>
+  {{#each skills }}
+<tr class="tr">
+    <td class="tdPicture "><dev class="imgSkills"><img src="{{picture}}" alt=""></dev></td>
+    <td>{{ skillName }}</td>
+    <td><a class="btn-skills" href="/details/{{_id}}">Info</a></td>
+    <br>
+  </tr>
+  {{/each}}
+
+  </tbody>
+  </table>
+
+{{!-- <ul class="listSkills">
+  <li class="skill-list">
+    <b>
+      <dev class="imgSkills"><img src="{{picture}}" alt=""></dev>
+      <p>{{ skillName }}</p>
       <a  href="/details/{{_id}}">More Info</a>
   </li>
-</ul>
-{{/each}}
+</ul> --}}
 
 <div class="container">
   <a class="big-btn" href="/skills/addSkill">Add your own</a>
+</div>
+<div class="containerReturn">
+  <a class="big-btn btn-addSkill" href="/">Return</a>
 </div>

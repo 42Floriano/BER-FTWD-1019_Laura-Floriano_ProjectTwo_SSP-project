@@ -1,6 +1,6 @@
-<h2>Signup</h2>
+<h2 class="h2Signup">Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
+<form class="userForm" action="/auth/signup" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
   <br>
@@ -42,10 +42,14 @@
 
   <br><br>
 
+<div class="btn-signup">
   <button class="big-btn">Create account</button>
+</div>
 
+<div class="alreadyAccount">
   <p class="account-message">
     Do you already have an account?
     <a href="/auth/login">Login</a>
   </p>
+  </div>
 </form>

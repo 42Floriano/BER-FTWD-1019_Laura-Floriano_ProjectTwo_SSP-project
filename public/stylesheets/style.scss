@@ -8,38 +8,79 @@ html {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
-
 
 /* ----------------- MOBILE CSS --------------------- */
 @media (max-width: 480px) {
-
   h2 {
-    font-size: 3.5em ;
+    font-size: 3.5em;
     text-align: center;
   }
 
   h4 {
     font-size: 1em;
   }
-
-
   .container {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
   }
 
-  .containerIndex p {
-    margin-top: 5vh 0vh 5vh;
-    text-align: justify;
+  .big-btn {
+    background-color: lightgray;
+    border-radius: 50px;
+    padding: 14px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    -webkit-box-shadow: 5px 5px 13px -4px #000000;
+    box-shadow: 5px 5px 13px -4px #000000;
+    border: none;
   }
 
-  /*------------------- INDEX -------------------*/
+  .big-btn:active {
+    background-color: darkgray;
+    transform: translateY(2px);
+  }
+
+  .userForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-radius: 5px;
+    background-color: grey;
+    padding: 20px;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 5px 5px 13px -4px #000000;
+    box-shadow: 5px 5px 13px -4px #000000;
+  }
+
+  .userForm input {
+    -webkit-box-shadow: 5px 5px 13px -8px #000000;
+    box-shadow: 5px 5px 13px -8px #000000;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 5px 5px 5px 5px;
+
+  }
+  .userForm select {
+    -webkit-box-shadow: 5px 5px 13px -8px #000000;
+    box-shadow: 5px 5px 13px -8px #000000;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 5px 5px 5px 5px;
+  }
+
+
+
+
+
+
+  /*------------------- NAVIGATION -------------------*/
 
   .logo {
     position: absolute;
@@ -47,35 +88,20 @@ a {
     border-width: 2px;
     border-style: solid;
     border-radius: 25%;
+    padding: 0.1vh;
+  
   }
 
-  .container h2 {
-    font-size: 3em;
+  .topnav {
+    background-color: pink;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-shadow: 5px 5px 13px -1px pink;
+    box-shadow: 5px 5px 13px -1px pink;
   }
 
-  .index-img {
-
-    height: 200px;
-    width: 80%;
-  }
-
-  .containerIndex {
-    margin-bottom: 2vh;
-
-  }
-
-  .containerIndex p {
-    font-size: 0.9em;
-
-  }
-
-  .mySlides {
-
-    max-width: 100%;
-    max-height: 100%;
-    border: 8px grey rgba(28,110,164,0.39);
-    border-radius: 20px 20px 20px 20px;
-
+  .container-row.topnav {
+    width: 310px;
   }
 
   .container-row {
@@ -84,7 +110,6 @@ a {
     width: 250px;
     border-radius: 20px;
     padding: 0px 4px 0px;
-
   }
 
   .fas {
@@ -95,19 +120,10 @@ a {
     margin-bottom: -20px;
   }
 
-  /*------------------- NAVIGATION -------------------*/
-
-  .topnav {
-    background-color: pink;
-    width: 300px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /*------------------- Hide the links inside the navigation menu (except for logo/home) -------------------*/
   .topnav #myLinks {
     display: none;
   }
+
 
   /*------------------- Style navigation menu links------------------- */
   .topnav a {
@@ -136,12 +152,61 @@ a {
     color: white;
   }
 
+
+
+
+
+
+
+
+
+  /*------------------- INDEX -------------------*/
+
+  
+
+  .container h2 {
+    font-size: 3em;
+    text-shadow: 2px 2px 2px lightgrey;
+  }
+
+  .index-img {
+    height: 200px;
+    width: 80%;
+  }
+
+  .containerIndex {
+    margin-bottom: 2vh;
+  }
+
+  .containerIndex p {
+    margin-top: 5vh 0vh 5vh;
+    text-align: justify;
+    font-size: 0.9em;
+  }
+
+  .mySlides {
+    max-width: 100%;
+    max-height: 100%;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 5px 5px 13px -4px #000000;
+    box-shadow: 5px 5px 13px -4px #000000;
+  }
+
+
+
+
+
+
+
   /*---------------- LOGIN -------------------*/
 
   .profile-pic {
     width: 40%;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin: 5vh;
+    -webkit-box-shadow: 5px 5px 13px -4px #000000;
+    box-shadow: 5px 5px 13px -4px #000000;
   }
 
   .input {
@@ -150,31 +215,44 @@ a {
     border-width: 0 0 2px;
     border-color: pink;
     margin-top: 10px;
+    -webkit-box-shadow: 5px 5px 13px -5px grey;
+    box-shadow: 5px 5px 13px -5px grey;
   }
 
-  .login-btn {
-    font-size: 14px;
-    background-color: light-grey;
-    width: 200px;
-    border-radius: 50px;
-    padding: 14px 20px;
-    margin-bottom: 20px;
+  .log-btn {
+    margin-bottom: 3vh;
   }
+
+
+
+
+
+
+  /*------------------- Signup -------------------*/
+
+  .h2Signup {
+    font-size: 3em;
+    text-shadow: 2px 2px 2px lightgrey;
+    margin: 5vh;
+  }
+
+
+.btn-signup {
+  align-self: center;
+}
+.alreadyAccount {
+  align-self: center;
+  text-align: center;
+}
+
+
 
   /*------------------- SKILL OVERVIEW -------------------*/
 
-  .big-btn {
-    background-color: lightgray;
-    border-radius: 50px;
-    padding: 14px 20px;
-    margin-top: 20px;
-    text-decoration: none;
-    color: black;
-  }
 
-  .big-btn:active {
-    background-color: darkgray;
-    transform: translateY(2px);
+  .h2Skills {
+    font-size: 2.2em !important;
+    margin: 3vh;
   }
 
   .find-btn {
@@ -183,69 +261,117 @@ a {
     padding: 7px 10px;
     text-decoration: none;
     color: black;
+    -webkit-box-shadow: 5px 5px 13px -6px #000000;
+    box-shadow: 5px 5px 13px -6px #000000;
+    border: none;
   }
-  .find-btn:active{
+  .find-btn:active {
     background-color: darkgray;
     transform: translateY(2px);
   }
 
+  .imgSkills img{
+    width: 50px;
+    margin-bottom: 4vh;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 5px 5px 13px -6px #000000;
+    box-shadow: 5px 5px 13px -6px #000000;
+
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  table {
+    border-collapse: collapse;
+    
+    align-self: center;
+  }
+  td {
+    border: none;
+}
+
+  .tr {
+    height: 4vh;
+  }
+
   .skill-list {
+    display: flex;
+    flex-direction: row;
     list-style: none;
     margin-bottom: -5px;
   }
 
-.userH1name {
-margin: 4vh;
-text-justify: initial;
-}
+  .btn-skills {
+
+  background-color: lightgray;
+    border-radius: 25px;
+    padding: 7px 10px;
+    text-decoration: none;
+    color: black;
+    -webkit-box-shadow: 5px 5px 13px -6px #000000;
+    box-shadow: 5px 5px 13px -6px #000000;
+    border: none;
+  }
+  .btn-skills:active {
+    background-color: darkgray;
+    transform: translateY(2px);
+  }
+
+  .containerReturn {
+    margin-top: 2vh;
+    align-self: center;
+
+  }
 
 
-.userContainer {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+
+  .userH1name {
+    margin: 4vh;
+    text-justify: initial;
+  }
+
+
+  .userContainer {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
   
-  
 
-}
-.userForm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  border-radius: 5px;
-  background-color: grey;
-  padding: 20px;
-  border: 8px grey rgba(28,110,164,0.39);
-  border-radius: 20px 20px 20px 20px;
-  
-}
+  .userImg img {
+    width: 100px;
+    margin-bottom: 4vh;
+    border: 8px grey rgba(28, 110, 164, 0.39);
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 5px 5px 13px -6px #000000;
+    box-shadow: 5px 5px 13px -6px #000000;
+  }
 
-.userImg img {
-  width: 100px;
-  margin-bottom: 4vh;
-  border: 8px grey rgba(28,110,164,0.39);
-border-radius: 20px 20px 20px 20px;
+  .userH1name {
+    text-align: center;
+  }
+  .profileB {
+    display: flex;
+    align-self: center;
+  }
 
 
-}
+/*---------------------- INFO SKILL ---------------------*/
 
-.userH1name {
-  text-align: center;
-}
-.profileB {
-  display: flex;
-  align-self: center;
-
+.profileh2 {
+  margin-top: 3vh;
 }
 
-   /* ---------------- Skill DETAILS ------------------*/
 
+  /* ---------------- Skill DETAILS ------------------*/
 
-   .skill-img {
+  .skill-img {
     width: 200px;
   }
 
@@ -258,6 +384,32 @@ border-radius: 20px 20px 20px 20px;
   }
 
   .delete {
+    align-self: center;
     margin-top: 20px;
   }
+
+  .returnDetails{
+
+  } 
+
+
+
+.h3SkillDetails {
+  margin: 3vh;
+} 
+
+/*------------------ ADD SKILL -----------------*/
+
+.h2addSkill {
+
+  font-size: 2.2em !important;
+    margin: 3vh;
+    text-shadow: 2px 2px 2px lightgrey;
+}
+
+.btn-addSkill {
+  align-self: center;
+  margin: 0 !important;
+}
+
 }

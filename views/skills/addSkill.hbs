@@ -1,5 +1,5 @@
-<h1>Add a skill</h1>
-<form action="/add" method="post">
+<h2 class="h2addSkill">Add a skill</h2>
+<form class="userForm"action="/add" method="post">
   <label for="skillName">Name: </label>
   <input type="text" name="skillName" id="skillName" required>
   <br>
@@ -12,5 +12,7 @@
   <label for="picture">URL picture: </label>
   <input type="text" name="picture" id="picture">
   <br>
-  <button class="big-btn" type="submit">Add</button>
+  <button class="big-btn btn-addSkill" type="submit">Add</button>
+  <br>
+  <a class="big-btn btn-addSkill" href="/skills">Return</a>
 </form>
