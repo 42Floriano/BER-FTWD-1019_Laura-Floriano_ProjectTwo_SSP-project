@@ -4,7 +4,7 @@
 html {
   padding: 50px;
   font-family: 14px Helvetica, Arial, sans-serif;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 }
 
 a {
@@ -16,7 +16,7 @@ a {
 @media (max-width: 480px) {
 
   h2 {
-    font-size: 3.5em !important;
+    font-size: 3.5em ;
     text-align: center;
   }
 
@@ -34,7 +34,7 @@ a {
     
   }
 
-  /* INDEX */
+  /*------------------- INDEX -------------------*/
 
   .logo {
     position: absolute;
@@ -44,11 +44,25 @@ a {
     border-radius: 25%;
   }
 
+  .container h2 {
+    font-size: 3em;
+  }
+
   .index-img {
 
     height: 200px;
     width: 80%;
     
+  }
+
+  .containerIndex {
+    margin-bottom: 2vh;
+
+  }
+
+  .containerIndex p {
+    font-size: 0.9em;
+
   }
 
   .mySlides {
@@ -74,7 +88,7 @@ a {
     margin-bottom: -20px;
   }
 
-  /* NAVIGATION */
+  /*------------------- NAVIGATION -------------------*/
 
   .topnav {
     background-color: pink;
@@ -83,12 +97,12 @@ a {
     position: relative;
   }
 
-  /* Hide the links inside the navigation menu (except for logo/home) */
+  /*------------------- Hide the links inside the navigation menu (except for logo/home) -------------------*/
   .topnav #myLinks {
     display: none;
   }
 
-  /* Style navigation menu links */
+  /*------------------- Style navigation menu links------------------- */
   .topnav a {
     color: white;
     padding: 14px 16px;
@@ -97,7 +111,7 @@ a {
     display: block;
   }
 
-  /* Style the hamburger menu */
+  /*------------------- Style the hamburger menu------------------- */
   .topnav a.icon {
     display: block;
     position: absolute;
@@ -105,17 +119,17 @@ a {
     top: 0;
   }
 
-  /* Change text color to black on mouse-over */
+  /*------------------- Change text color to black on mouse-over -------------------*/
   .topnav a:hover {
     color: black;
   }
 
-  /* Style the home */
+  /*----------------- Style the home --------------------*/
   .active {
     color: white;
   }
 
-  /* LOGIN */
+  /*---------------- LOGIN -------------------*/
 
   .profile-pic {
     width: 40%;
@@ -140,7 +154,7 @@ a {
     margin-bottom: 20px;
   }
 
-  /* SKILL OVERVIEW */
+  /*------------------- SKILL OVERVIEW -------------------*/
 
   .big-btn {
     background-color: lightgray;
@@ -164,6 +178,12 @@ a {
     margin-bottom: -5px;
   }
 /* ---------------- Profile HBS ------------------*/
+
+.userH1name {
+
+margin: 4vh;
+}
+
 
 .userContainer {
   display: flex;
@@ -203,3 +223,4 @@ a {
 margin: 3vh;
 }
 }
+
