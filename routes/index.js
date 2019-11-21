@@ -2,48 +2,49 @@ const express = require('express');
 const router = express.Router();
 const User = require("../models/User");
 const Skill = require("../models/Skill");
-const Comment = require("../models/Skill");
+const Comment = require("../models/Comment");
 const ensureLogin = require("connect-ensure-login");
-const url = require('url');    
+
 
 
 /* GET home page */
 
 router.get('/', (req, res, next) => {
-  res.render('index' , {loggedInUser:req.user});
+  res.render('index', {
+    loggedInUser: req.user
+  });
 });
 
 router.get('/getUser', (req, res, next) => {
-  if(req.user){
-  User.findById(req.user._id).then(user =>{
-    res.send(user)
-    return;
-  })
-}
-return;
+  if (req.user) {
+    User.findById(req.user._id).then(user => {
+      res.send(user)
+      return;
+    })
+  }
+  return;
 })
+
 /* SKILL DETAILS PAGE */
 
 router.get("/details/:id", (req, res, next) => {
-  console.log("TEST",req.params.id)
- 
+  console.log("TEST", req.params.id)
+
   Skill.findById(req.params.id)
     .then(theSkill => {
       console.log(theSkill)
       res.render("skills/details", {
         skill: theSkill,
         showDelete: theSkill.owner._id.toString() === req.user._id.toString(),
-        loggedInUser:req.user
+        loggedInUser: req.user
       })
     })
-  
+
     .catch(err => {
       console.log(err)
     });
-  
+
 })
-
-
 
 
 /* PROFILE */
@@ -57,7 +58,7 @@ router.get("/profile", (req, res, next) => {
       console.log(documents[0])
       res.render("profile/profile", {
         user: documents[0],
-        loggedInUser:req.user
+        loggedInUser: req.user
       })
     })
     .catch(err => {
@@ -67,15 +68,9 @@ router.get("/profile", (req, res, next) => {
 
 router.get("/profile/delete", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
-  // const query = { _id: req.user._id };
-  // console.log(query);
-
-  //   query.owner = req.user._id;
-
-  // if the user that made the request is the one that created the room:
-  // delete the room where the `_id` of the room is the one from the params and the `owner` of the room is the user who made the request
-
-  User.deleteOne({ _id: req.user._id })
+  User.deleteOne({
+      _id: req.user._id
+    })
     .then(() => {
       res.redirect("/");
     })
@@ -87,41 +82,38 @@ router.get("/profile/delete", ensureLogin.ensureLoggedIn(), (req, res, next) => 
 router.post("/profile/update", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 
-  if(!req.body.username || !req.body.password || !req.body.email || !req.body.picture ){
+  if (!req.body.username || !req.body.password || !req.body.email || !req.body.picture) {
     console.log("empty")
-    res.redirect("/profile"
-    )
-  return;
+    res.redirect("/profile")
+    return;
   }
 
-    User.updateOne({ _id: req.user._id },
-      {
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        picture: req.body.picture,
-        interests: req.body.interests,
-        languages: req.body.languages
-      }
-      )
-      .then(() => {
-        res.redirect("/profile");
-        console.log("test1")
-      })
-      .catch(err => {
-        next(err);
-      });
- 
-   
-  
-  
+  User.updateOne({
+      _id: req.user._id
+    }, {
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      picture: req.body.picture,
+      interests: req.body.interests,
+      languages: req.body.languages
+    })
+    .then(() => {
+      res.redirect("/profile");
+      console.log("test1")
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 
 /* Route to ADD SKILLS page */
 
 router.get('/skills/addSkill', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render('skills/addSkill');
+  res.render('skills/addSkill', {
+    loggedInUser: req.user
+  });
 });
 
 router.post("/add", ensureLogin.ensureLoggedIn(), (req, res, next) => {
@@ -149,7 +141,7 @@ router.get("/skills", (req, res, next) => {
       console.log(documents)
       res.render("skills/skills", {
         skills: documents,
-        loggedInUser:req.user
+        loggedInUser: req.user
       })
     })
     .catch(err => {
@@ -171,13 +163,13 @@ router.post("/search", (req, res, next) => {
       if (documents.length) {
         res.render("skills/search", {
           skills: documents,
-          loggedInUser:req.user
+          loggedInUser: req.user
 
         })
       } else {
         res.render("skills/search", {
           message: "Unfortunately not, the skill you are looking for is not available yet!",
-          loggedInUser:req.user
+          loggedInUser: req.user
 
         })
       }
@@ -187,14 +179,13 @@ router.post("/search", (req, res, next) => {
     })
 })
 
+// DELETE SKILLS
+
 router.get("/skills/:skillId/delete", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const query = {
     _id: req.params.skillId
   };
 
-
-  // if the user that made the request is the one that created the room:
-  // delete the room where the `_id` of the room is the one from the params and the `owner` of the room is the user who made the request
 
   Skill.deleteOne(query)
     .then(() => {
@@ -216,14 +207,14 @@ router.post("/skills/:skillId/update", ensureLogin.ensureLoggedIn(), (req, res, 
 
   Skill.updateOne(query,
 
-    {
-      skillName: req.body.skillName,
-      description: req.body.description,
-      scheduleSpecs: req.body.scheduleSpecs,
-      picture: req.body.picture,
-    }
-    
-    
+      {
+        skillName: req.body.skillName,
+        description: req.body.description,
+        scheduleSpecs: req.body.scheduleSpecs,
+        picture: req.body.picture,
+      }
+
+
     )
     .then(() => {
       res.redirect(`/skills`);
@@ -234,7 +225,45 @@ router.post("/skills/:skillId/update", ensureLogin.ensureLoggedIn(), (req, res, 
 });
 
 
+/* ADD COMMENTS */
 
+router.post("/skills/:skillId/comment", (req, res, next) => {
+  const content = req.body.comment;
+  const author = req.user._id;
+
+  Comment.create({
+      content: content,
+      author: author
+    })
+    .then(comment => {
+      console.log("comment", comment)
+      return Skill.findOneAndUpdate({
+          _id: req.params.skillId
+        }, {
+          $push: {
+            comments: comment._id
+          }
+        }, {
+          new: true
+        })
+        .populate({
+          path: "comments", // populates the `comments` field in the Room
+          populate: {
+            path: "author" // populates the `author` field in the Comment
+          }
+        })
+        .then(skill => {
+          console.log(skill)
+          res.json(skill.comments); // updated comments array
+
+          // send the room's document
+          // res.redirect(`/rooms/${req.params.roomId}`);
+        });
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 
 module.exports = router;

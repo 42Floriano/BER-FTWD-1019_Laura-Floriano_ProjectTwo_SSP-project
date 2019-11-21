@@ -9,16 +9,16 @@ const Comment = require("../models/Comment");
 
 const bcryptSalt = 10;
 
-mongoose
-  .connect('mongodb://localhost/ssp-project', {
-    useNewUrlParser: true
-  })
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+// mongoose
+//   .connect('mongodb://localhost/ssp-project', {
+//     useNewUrlParser: true
+//   })
+//   .then(x => {
+//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+//   })
+//   .catch(err => {
+//     console.error('Error connecting to mongo', err)
+//   });
 
 // let users = [{
 //     username: "Floriano",
@@ -75,52 +75,52 @@ mongoose
 // }]
 
 // Seeds file that removes all users and creates 2 new users
-User.deleteMany()
-  .then(() => {
-    return User.create(users)
-  })
-  .then(usersCreated => {
-    console.log(`${usersCreated.length} users created with the following id:`);
-    // console.log(usersCreated.map(u => u._id));
-  })
-  .then(() => {
-    // Close properly the connection to Mongoose
-    mongoose.disconnect()
-  })
-  .catch(err => {
-    mongoose.disconnect()
-    throw err
-  })
+// User.deleteMany()
+//   .then(() => {
+//     return User.create(users)
+//   })
+//   .then(usersCreated => {
+//     console.log(`${usersCreated.length} users created with the following id:`);
+//     // console.log(usersCreated.map(u => u._id));
+//   })
+//   .then(() => {
+//     // Close properly the connection to Mongoose
+//     mongoose.disconnect()
+//   })
+//   .catch(err => {
+//     mongoose.disconnect()
+//     throw err
+//   })
 
-Skill.deleteMany()
-  .then(() => {
-    return Skill.create(skills);
-  })
-  .then(skillsCreated => {
-    console.log(`${skillsCreated.length} skills created with the following id:`);
-    // console.log(usersCreated.map(u => u._id));
-  })
-  .then(() => {
-    mongoose.disconnect()
-  })
-  .catch(err => {
-    mongoose.disconnect()
-    throw err
-  })
+// Skill.deleteMany()
+//   .then(() => {
+//     return Skill.create(skills);
+//   })
+//   .then(skillsCreated => {
+//     console.log(`${skillsCreated.length} skills created with the following id:`);
+//     // console.log(usersCreated.map(u => u._id));
+//   })
+//   .then(() => {
+//     mongoose.disconnect()
+//   })
+//   .catch(err => {
+//     mongoose.disconnect()
+//     throw err
+//   })
 
-Comment.deleteMany()
-  .then(() => {
-    return Comment.create(comments)
-  })
-  .then(commentsCreated => {
-    console.log(`${commentsCreated.length} comments created with the following id:`);
-    // console.log(usersCreated.map(u => u._id));
-  })
-  .then(() => {
-    // Close properly the connection to Mongoose
-    mongoose.disconnect()
-  })
-  .catch(err => {
-    mongoose.disconnect()
-    throw err
-  })
+// Comment.deleteMany()
+//   .then(() => {
+//     return Comment.create(comments)
+//   })
+//   .then(commentsCreated => {
+//     console.log(`${commentsCreated.length} comments created with the following id:`);
+//     // console.log(usersCreated.map(u => u._id));
+//   })
+//   .then(() => {
+//     // Close properly the connection to Mongoose
+//     mongoose.disconnect()
+//   })
+//   .catch(err => {
+//     mongoose.disconnect()
+//     throw err
+//   })

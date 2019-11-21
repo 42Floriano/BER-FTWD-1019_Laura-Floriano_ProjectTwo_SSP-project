@@ -1,4 +1,3 @@
-
 <h1>{{skill.skillName}}</h1>
 
 <img src="{{skill.picture}}" alt="">
@@ -21,7 +20,46 @@
   <br>
   <button class="big-btn" type="submit">Modify</button>
 </form>
-<a class="big-btn" href="/skills/{{skill._id}}/delete">Delete ❌</a>
-
+<a class="big-btn" href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
 {{/if}}
-<a class="big-btn" href="/skills">Return</a>
+
+<a class="big-btn" href="/skills">Return to overview</a>
+
+<div id="comment-box">
+  {{#if skill.comments}}
+  <h2>Comments</h2>
+  {{/if}}
+  {{#each skill.comments}}
+  <h4>{{skill.username}}</h4>
+  <p>{{content}}</p>
+  {{/each}}
+</div>
+
+{{!-- <form action="/rooms/{{room._id}}/comment" method="post"> --}}
+<form id="comment-form">
+  <label for="comment">Add a comment</label>
+  <input type="text" id="comment">
+</form>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+  document.getElementById('comment-form').onsubmit = event => {
+    event.preventDefault(); // prevents the default behaviour of the form
+
+    axios.post("/skills/{{skill._id}}/comment", {
+      comment: document.getElementById('comment').value
+    }).then(response => {
+      console.log(response.data)
+      let commentBox = '<h2>Comments</h2>';
+
+      console.log(response)
+      response.data.forEach(comment => {
+        commentBox += `<h4>${comment.author.username}</h4><p>${comment.content}</p>`
+      })
+      document.getElementById("comment-box").innerHTML = commentBox;
+      document.getElementById('comment').value = ""
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+</script>
