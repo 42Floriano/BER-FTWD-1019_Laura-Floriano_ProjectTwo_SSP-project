@@ -3,8 +3,7 @@
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
-
-  <br><br>
+  <br>
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
@@ -16,15 +15,16 @@
 
   <label for="picture">picture</label>
   <input id="picture" type="text" name="picture" placeholder="picture URL">
+
   <br>
 
 
   <p>Choose your interests :</p>
-    <select multiple="multiple" class="interests" id="interests" name="interests">
+  <select multiple="multiple" class="interests" id="interests" name="interests">
     <option value="Outdoor">Outdoor</option>
     <option value="Indoor">Indoor</option>
     <option value="Science">Science</option>
-    </select>
+  </select>
   <br>
 
 
@@ -36,14 +36,13 @@
   </select>
 
 
-
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
 
-  <button>Create account</button>
+  <button class="skill-btn">Create account</button>
 
   <p class="account-message">
     Do you already have an account?
