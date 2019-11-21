@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
 <body>
+  <div class="container">
+    <nav class="container-row topnav">
 
-  <nav class="navBar">
+      <p class="logo">SSS</p>
+      <a href="/" class="active">Home</a>
 
-    <a href="/" class="active">Home</a>
-
-    <div id="buttonMenu">
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/skills">Skill</a>
-    <a href="/profile">profile</a>
-    <a href="/auth/logout">Logout</a>
-    </div>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-  </nav>
+      <div id="myLinks">
+        <a href="/auth/login">Login</a>
+        <a href="/auth/signup">Signup</a>
+        <a href="/profile">Profile</a>
+        <a href="/skills">Skills</a>
+        <a href="/auth/logout">Logout</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+  </div>
 
 
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
-  
+
 </body>
+
 </html>
