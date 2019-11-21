@@ -168,7 +168,7 @@ router.post("/search", (req, res, next) => {
         })
       } else {
         res.render("skills/search", {
-          message: "Unfortunately not, the skill you are looking for is not available yet!",
+          message: "Unfortunately, the skill you are looking for is not available yet!",
           loggedInUser: req.user
 
         })

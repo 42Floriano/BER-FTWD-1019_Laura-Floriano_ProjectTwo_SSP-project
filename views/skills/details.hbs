@@ -1,45 +1,64 @@
-<h1>{{skill.skillName}}</h1>
+<div class="container">
 
-<img src="{{skill.picture}}" alt="">
-<span>{{ skill.description }}</span>
+  <h3>{{skill.skillName}}</h3>
 
-{{#if showDelete}}
-<form action="/skills/{{skill._id}}/update" method="post">
-
-  <label for="skillName">Name: </label>
-  <input type="text" name="skillName" id="skillName" value="{{skill.skillName}}">
+  <img class="skill-img" src="{{skill.picture}}" alt="">
   <br>
-  <label for="description">Description: </label>
-  <input type="text" name="description" id="description" value="{{skill.description}}">
-  <br>
-  <label for="scheduleSpecs">Schedule: </label>
-  <input type="text" name="scheduleSpecs" id="scheduleSpecs" value="{{skill.scheduleSpecs}}">
-  <br>
-  <label for="picture">URL picture: </label>
-  <input type="text" name="picture" id="picture" value="{{skill.picture}}">
-  <br>
-  <button class="big-btn" type="submit">Modify</button>
-</form>
-<a class="big-btn" href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
-{{/if}}
+  <span>{{ skill.description }}</span>
 
-<a class="big-btn" href="/skills">Return to overview</a>
+  {{#if showDelete}}
+  <div class="skill-form">
+    <form action="/skills/{{skill._id}}/update" method="post">
 
-<div id="comment-box">
-  {{#if skill.comments}}
-  <h2>Comments</h2>
+      <div>
+        <label for="skillName">Name: </label>
+        <input type="text" name="skillName" id="skillName" value="{{skill.skillName}}">
+      </div>
+      <br>
+      <div>
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description" value="{{skill.description}}">
+      </div>
+      <br>
+      <div>
+        <label for="scheduleSpecs">Schedule: </label>
+        <input type="text" name="scheduleSpecs" id="scheduleSpecs" value="{{skill.scheduleSpecs}}">
+      </div>
+      <br>
+      <div>
+        <label for="picture">URL picture: </label>
+        <input type="text" name="picture" id="picture" value="{{skill.picture}}">
+      </div>
+      <br>
+      <button class="big-btn" type="submit">Modify</button>
+    </form>
+    <div class="delete">
+      <a class="big-btn" href="/skills/{{skill._id}}/delete">Delete this skill ❌</a>
+    </div>
+  </div>
   {{/if}}
-  {{#each skill.comments}}
-  <h4>{{skill.username}}</h4>
-  <p>{{content}}</p>
-  {{/each}}
+
+  <div id="comment-box">
+    {{#if skill.comments}}
+    <h4>Comments</h4>
+    {{#each skill.comments}}
+    <span>{{skill.username}}</span>
+    <p>{{content}}</p>
+    {{/each}}
+    {{/if}}
+  </div>
+
+  <a class="big-btn" href="/skills">Return to overview</a>
+
+
+  {{!-- <form action="/rooms/{{room._id}}/comment" method="post"> --}}
+  <form id="comment-form">
+    <label for="comment">Add a comment</label>
+    <input type="text" id="comment">
+  </form>
+
 </div>
 
-{{!-- <form action="/rooms/{{room._id}}/comment" method="post"> --}}
-<form id="comment-form">
-  <label for="comment">Add a comment</label>
-  <input type="text" id="comment">
-</form>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
