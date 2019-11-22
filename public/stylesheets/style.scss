@@ -425,6 +425,14 @@ td a {
   margin: 3vh;
 } 
 
+.userFormDetails {
+display: flex;
+justify-content: flex-start;
+flex-direction: column;
+align-items: flex-start;
+
+}
+
 /*------------------ ADD SKILL -----------------*/
 
 .h2addSkill {

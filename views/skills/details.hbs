@@ -7,7 +7,7 @@
   </div>
   <br>
 
-  <form id="userForm">
+  <form id="userFormDetails">
   <label>Description: </label>  
   <p>{{skill.description}}</p>
   <label>Schedule: </label>  
@@ -15,8 +15,6 @@
   </form>
   
 </div>
-
-
   {{#if showDelete}}
   <div class="skill-form">
     <form class="userForm" action="/skills/{{skill._id}}/update" method="post">
