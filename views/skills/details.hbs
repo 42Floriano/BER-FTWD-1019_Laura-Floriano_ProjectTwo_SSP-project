@@ -1,11 +1,21 @@
 <div class="container">
 
+<div>
   <h3 class="h3SkillDetails">{{skill.skillName}}</h3>
-
   <div class="userImg profileh2"> 
   <img src="{{skill.picture}}" alt="">
   </div>
   <br>
+
+  <form id="userForm">
+  <label>Description: </label>  
+  <p>{{skill.description}}</p>
+  <label>Schedule: </label>  
+  <p>{{skill.scheduleSpecs}}</p>
+  </form>
+  
+</div>
+
 
   {{#if showDelete}}
   <div class="skill-form">

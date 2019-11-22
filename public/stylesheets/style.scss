@@ -287,15 +287,29 @@ a {
 
   table {
     border-collapse: collapse;
-    
-    align-self: center;
+    margin-top: -70px;
+    align: center;
   }
-  td {
+  table td {
     border: none;
+  }
+  td img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;  
+}
+td p {
+  margin-left: 20px;
+}
+td a {
+  margin-left: 15px;
+  
 }
 
-  .tr {
-    height: 4vh;
+  table, tr {
+    height: 8vh;
+    border: none;
   }
 
   .skill-list {
@@ -322,7 +336,7 @@ a {
   }
 
   .containerReturn {
-    margin-top: 2vh;
+    margin-top: 4vh;
     align-self: center;
 
   }
@@ -362,10 +376,23 @@ a {
   }
 
 
-/*---------------------- INFO SKILL ---------------------*/
+/*---------------------- SEARCH SKILL ---------------------*/
 
-.profileh2 {
-  margin-top: 3vh;
+.h2Search {
+  font-size: 1.5rem !important;
+  margin: 10vh;
+  width: 100%;
+  padding: 2vh -0vh 2vh;
+  border-bottom: 2px solid black;
+}
+
+.errorMsg {
+  margin: 4vh;
+  margin-top: -50px;
+}
+
+.errorMsg p  {
+  text-justify: initial;
 }
 
 
@@ -389,7 +416,7 @@ a {
   }
 
   .returnDetails{
-
+    margin: 4vh;
   } 
 
 
